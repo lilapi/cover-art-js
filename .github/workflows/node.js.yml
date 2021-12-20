@@ -33,3 +33,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm t
+    - run: npm run build
