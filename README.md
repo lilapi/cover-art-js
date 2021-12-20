@@ -1,6 +1,6 @@
 ![Little Eagle logo](assets/logo-700-black.svg)
 
-Generate beautiful images on the fly.
+# Little Eagle: Generate beautiful images on the fly.
 
 Works with:
 
