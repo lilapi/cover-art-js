@@ -1,4 +1,4 @@
-# littleeagle-js
+# Little Eagle
 
 Generate beautiful images on the fly.
 
