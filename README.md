@@ -11,7 +11,7 @@ Works with:
 ## Get Started
 
 ```bash
-npm add @littleeagle/node
+npm add @littleeagle/images-node
 ```
 
 ## Usage
@@ -23,7 +23,7 @@ npm add @littleeagle/node
    `LITTLE_EAGLE_PROJECT_SECRET`).
    - Here’s how you
      [add environment variables using Vercel](https://vercel.com/support/articles/how-to-add-vercel-environment-variables).
-3. Install the Little Eagle node package: `npm add @littleeagle/node`
+3. Install the Little Eagle node package: `npm add @littleeagle/images-node`
 4. Call the `littleEagleImagesURL()` function to generate your images URL. An example is provided below. It’s
    recommended you do this on the server as your secret shouldn’t be made
    public.

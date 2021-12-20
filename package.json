@@ -1,5 +1,5 @@
 {
-  "name": "@littleeagle/node",
+  "name": "@littleeagle/images-node",
   "version": "0.1.0",
   "description": "Generate beautiful images on the fly",
   "main": "./dist/index.js",
