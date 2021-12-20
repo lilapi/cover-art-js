@@ -1,3 +1,5 @@
+import crypto from 'crypto';
+
 export interface TemplateOptions {
     template: 'plain' | 'overlay';
     width?: number;
@@ -9,7 +11,7 @@ export interface TemplateOptions {
     imagePosition?: 'left' | 'right';
   }
   
-  export function projectTemplateURL(
+  function projectTemplateURL(
     projectID: string,
     options: TemplateOptions,
   ) {
@@ -43,3 +45,12 @@ export interface TemplateOptions {
     return url;
   }
   
+  export function littleEagleImagesURL(
+    project: { id: string; secret: string },
+    options: TemplateOptions
+  ) {
+    const baseURL = projectTemplateURL(project.id, options);
+    const signature = crypto.createHmac('sha256', project.secret).update(baseURL.pathname + baseURL.search).digest('hex');
+    baseURL.searchParams.set('s', signature);
+    return baseURL.toString();
+  }
