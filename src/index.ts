@@ -1,0 +1,45 @@
+export interface TemplateOptions {
+    template: 'plain' | 'overlay';
+    width?: number;
+    height?: number;
+    text: Array<{ text: string; size: number | `${number}`; color: string }>;
+    gap?: number;
+    backgroundColor?: string;
+    imageURL?: string;
+    imagePosition?: 'left' | 'right';
+  }
+  
+  export function projectTemplateURL(
+    projectID: string,
+    options: TemplateOptions,
+  ) {
+    const url = new URL(`https://cdn.littleeagle.io/1/p/${projectID}/${options.template}`);
+    for (const [index, line] of options.text.entries()) {
+      const base = `t${index + 1}`;
+      url.searchParams.set(base, line.text);
+      url.searchParams.set(`${base}-size`, `${line.size}`);
+      url.searchParams.set(`${base}-color`, line.color);
+    }
+  
+    if (typeof options.width === 'number') {
+      url.searchParams.set('w', options.width.toString());
+    }
+    if (typeof options.height === 'number') {
+      url.searchParams.set('h', options.height.toString());
+    }
+    if (typeof options.backgroundColor === 'string') {
+      url.searchParams.set('bg-color', options.backgroundColor);
+    }
+    if (typeof options.gap === 'number') {
+      url.searchParams.set('gap', options.gap.toString());
+    }
+    if (typeof options.imageURL === 'string') {
+      url.searchParams.set('img', options.imageURL);
+    }
+    if (typeof options.imagePosition === 'string') {
+      url.searchParams.set('img-pos', options.imagePosition);
+    }
+  
+    return url;
+  }
+  
