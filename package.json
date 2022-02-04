@@ -15,8 +15,9 @@
   "scripts": {
     "build": "tsup src/index.ts --format esm,cjs --dts",
     "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "tsc": "tsc --noEmit src/index.ts",
     "test": "node -r esbuild-runner/register src/test.ts",
-    "prepack": "npm t && npm run build"
+    "prepack": "npm run tsc && npm t && npm run build"
   },
   "author": "",
   "license": "MIT",
