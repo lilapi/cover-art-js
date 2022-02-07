@@ -19,7 +19,7 @@ function projectTemplateURL(
   const url = new URL(
     `https://cdn.littleeagle.io/1/p/${projectID}/${options.template}`,
   );
-  for (const [index, line] of options.text.entries()) {
+  for (const [index, line] of Array.from(options.text.entries())) {
     const base = `t${index + 1}`;
     url.searchParams.set(base, line.text);
     url.searchParams.set(`${base}-size`, `${line.size}`);
@@ -76,7 +76,7 @@ export function gitHubTemplateURL(
   const url = new URL(
     `https://cdn.littleeagle.io/1/github/${options.username}`,
   );
-  for (const [index, line] of options.text.entries()) {
+  for (const [index, line] of Array.from(options.text.entries())) {
     const base = `t${index + 1}`;
     url.searchParams.set(base, line.text);
     url.searchParams.set(`${base}-size`, `${line.size}`);
