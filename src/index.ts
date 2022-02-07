@@ -9,6 +9,7 @@ export interface TemplateOptions {
     backgroundColor?: string;
     imageURL?: string;
     imagePosition?: 'left' | 'right';
+    logoURL?: string;
   }
   
   function projectTemplateURL(
@@ -40,6 +41,9 @@ export interface TemplateOptions {
     }
     if (typeof options.imagePosition === 'string') {
       url.searchParams.set('img-pos', options.imagePosition);
+    }
+    if (typeof options.logoURL === 'string') {
+      url.searchParams.set('logo', options.logoURL);
     }
   
     return url;
