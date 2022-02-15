@@ -5,7 +5,6 @@ export interface TemplateOptions {
   width?: number;
   height?: number;
   text: Array<{ text: string; size: number | `${number}`; color: string }>;
-  gap?: number;
   backgroundColor?: string;
   imageURL?: string;
   imagePosition?: "left" | "right";
@@ -34,9 +33,6 @@ function projectTemplateURL(
   }
   if (typeof options.backgroundColor === "string") {
     url.searchParams.set("bg-color", options.backgroundColor);
-  }
-  if (typeof options.gap === "number") {
-    url.searchParams.set("gap", options.gap.toString());
   }
   if (typeof options.imageURL === "string") {
     url.searchParams.set("img", options.imageURL);
