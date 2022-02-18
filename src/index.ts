@@ -1,7 +1,7 @@
 import * as crypto from "crypto";
 
 export interface TemplateOptions {
-  template: "plain" | "overlay";
+  template: "plain" | "overlay" | "message";
   width?: number;
   height?: number;
   text: Array<{ text: string; size: number | `${number}`; color: string }>;
