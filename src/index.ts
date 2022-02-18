@@ -89,5 +89,5 @@ export function gitHubTemplateURL(
     url.searchParams.set("bg-color", options.backgroundColor);
   }
 
-  return url;
+  return url.toString();
 }
