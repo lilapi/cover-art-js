@@ -52,8 +52,10 @@ test("gitHubTemplateURL()", () => {
         { text: "First", size: 17, color: "#aaa" },
         { text: "Second", size: 23, color: "#bbb" },
       ],
+      authorName: 'some-author',
+      website: 'https://example.org',
     }),
-    "https://cdn.littleeagle.io/1/github/BurntCaramel?t1=First&t1-size=17&t1-color=%23aaa&t2=Second&t2-size=23&t2-color=%23bbb&bg-color=%2300b4ff",
+    "https://cdn.littleeagle.io/1/github/BurntCaramel?t1=First&t1-size=17&t1-color=%23aaa&t2=Second&t2-size=23&t2-color=%23bbb&bg-color=%2300b4ff&author-name=some-author&website=https%3A%2F%2Fexample.org",
   );
 });
 

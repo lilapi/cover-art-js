@@ -61,6 +61,8 @@ export function littleEagleImagesURL(
 
 export interface GitHubTemplateOptions {
   username: string;
+  authorName?: string;
+  website?: string;
   width?: number;
   height?: number;
   text: Array<{ text: string; size: number | `${number}`; color: string }>;
@@ -87,6 +89,12 @@ export function gitHubTemplateURL(
   }
   if (typeof options.backgroundColor === "string") {
     url.searchParams.set("bg-color", options.backgroundColor);
+  }
+  if (typeof options.authorName === "string") {
+    url.searchParams.set("author-name", options.authorName);
+  }
+  if (typeof options.website === "string") {
+    url.searchParams.set("website", options.website);
   }
 
   return url.toString();

@@ -4,8 +4,8 @@
 
 Works with:
 
-- Next.js
 - Remix
+- Next.js
 - Express
 
 ## Get Started
@@ -15,6 +15,25 @@ npm add @littleeagle/images-node
 ```
 
 ## Usage
+
+### As a GitHub User:
+
+```ts
+const imageURL = gitHubTemplateURL({
+  username: "BurntCaramel",
+  backgroundColor: "#00b4ff",
+  text: [
+    { text: "First", size: 17, color: "#aaa" },
+    { text: "Second", size: 23, color: "#bbb" },
+  ],
+  authorName: 'some-author',
+  website: 'https://example.org',
+});
+
+// Use `imageURL` e.g. as the value in a `og:image` meta tag or src of an `<img>`.
+```
+
+### With a LittleEagle.io Project:
 
 1. [Sign up](https://littleeagle.io/api/auth/signin) to create a free account on
    [littleeagle.io](https://littleeagle.io/)
@@ -48,6 +67,6 @@ const imageURL = littleEagleImagesURL({
 // Use `imageURL` e.g. as the value in a `og:image` meta tag.
 ```
 
-## Coming soon
+## Example
 
-An example repo in Next.js with Little Eagle integrated.
+- Remix: [little-eagle-remix-colors](https://github.com/littleeagleio/little-eagle-remix-colors)
