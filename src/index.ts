@@ -70,7 +70,14 @@ export interface GitHubTemplateOptions {
 }
 export function gitHubTemplateURL(
   options: GitHubTemplateOptions,
+  configuration?: {
+    transformColor?: (input: string) => string
+  }
 ) {
+  function transformColor(input: string) {
+    return configuration?.transformColor?.call(null, input) ?? input;
+  }
+
   const url = new URL(
     `https://cdn.littleeagle.io/1/github/${options.username}`,
   );
@@ -78,7 +85,7 @@ export function gitHubTemplateURL(
     const base = `t${index + 1}`;
     url.searchParams.set(base, line.text);
     url.searchParams.set(`${base}-size`, `${line.size}`);
-    url.searchParams.set(`${base}-color`, line.color);
+    url.searchParams.set(`${base}-color`, transformColor(line.color));
   }
 
   if (typeof options.width === "number") {
@@ -88,7 +95,7 @@ export function gitHubTemplateURL(
     url.searchParams.set("h", options.height.toString());
   }
   if (typeof options.backgroundColor === "string") {
-    url.searchParams.set("bg-color", options.backgroundColor);
+    url.searchParams.set("bg-color", transformColor(options.backgroundColor));
   }
   if (typeof options.authorName === "string") {
     url.searchParams.set("author-name", options.authorName);

@@ -59,4 +59,22 @@ test("gitHubTemplateURL()", () => {
   );
 });
 
+test("gitHubTemplateURL() with transformColor", () => {
+  assert.is(
+    gitHubTemplateURL({
+      username: "BurntCaramel",
+      backgroundColor: "red-50",
+      text: [
+        { text: "First", size: 17, color: "#aaa" },
+        { text: "Second", size: 17, color: "red-100" },
+      ],
+    }, {
+      transformColor(input) {
+        return new Map([['red-50', '#fef2f2'], ['red-100', '#fee2e2']]).get(input)
+      }
+    }),
+    "https://cdn.littleeagle.io/1/github/BurntCaramel?t1=First&t1-size=17&t1-color=%23aaa&t2=Second&t2-size=17&t2-color=%23fee2e2&bg-color=%23fef2f2",
+  );
+});
+
 test.run();
