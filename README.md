@@ -19,6 +19,8 @@ npm add @littleeagle/images-node
 ### As a GitHub User:
 
 ```ts
+import { gitHubTemplateURL } from "@littleeagle/images-node";
+
 const imageURL = gitHubTemplateURL({
   username: "BurntCaramel",
   backgroundColor: "#00b4ff",
@@ -27,11 +29,40 @@ const imageURL = gitHubTemplateURL({
     { text: "Second", size: 23, color: "#bbb" },
   ],
   authorName: 'some-author',
-  website: 'https://example.org',
+  website: 'example.org',
 });
 
 // Use `imageURL` e.g. as the value in a `og:image` meta tag or src of an `<img>`.
 ```
+
+#### `transformColor` option
+
+```ts
+import { gitHubTemplateURL } from "@littleeagle/images-node";
+
+const imageURL = gitHubTemplateURL({
+  username: "BurntCaramel",
+  backgroundColor: "black",
+  text: [
+    { text: "First", size: 17, color: "red" },
+    { text: "Second", size: 23, color: "red" },
+  ],
+  authorName: 'some-author',
+  website: 'example.org',
+}, {
+  transformColor(input: string): string {
+    switch (input) {
+      case 'black': return '#000';
+      case 'red': return '#f00';
+      default: return input;
+    }
+  }
+});
+
+// Use `imageURL` e.g. as the value in a `og:image` meta tag or src of an `<img>`.
+```
+
+If you use Tailwind, you can use `transformColor` to transform say `red-500` into the Tailwind color. [Read out blog post on using Tailwind’s colors](https://little-eagle.fly.dev/blog/tailwind-colors) for more.
 
 ### With a LittleEagle.io Project:
 
@@ -48,6 +79,8 @@ const imageURL = gitHubTemplateURL({
    public.
 
 ```ts
+import { littleEagleImagesURL } from "@littleeagle/images-node";
+
 const imageURL = littleEagleImagesURL({
   id: process.env.LITTLE_EAGLE_PROJECT_ID,
   secret: process.env.LITTLE_EAGLE_PROJECT_SECRET,
