@@ -1,6 +1,6 @@
 {
   "name": "@littleeagle/images-node",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Generate beautiful images on the fly",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
